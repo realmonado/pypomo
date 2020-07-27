@@ -26,7 +26,7 @@ while True:
     break;
 
   with alive_bar(len(items)) as bar:
-    for i in items:
+    for i in items:  # HACK using ranges to iterate while also executing bar()
       sleep(1)
       bar()
 

@@ -10,16 +10,16 @@ while True:
     markdown = Markdown(welcome.read())
     console.print(markdown)
     
-  x = input()
+  choice = input() # as mentioned in welcome.md
 
-  if x=="1":
-    items = range(1501)
+  if choice=="1":
+    items = range(1501) # 20 minutes
 
-  elif x=="2":
-    items = range(301) # 301
+  elif choice=="2":
+    items = range(301) # 5 minutes
 
-  elif x=="3":
-    items = range(901)
+  elif choice=="3":
+    items = range(901) # 15 minutes
 
   else:
     print("DONE")
@@ -31,5 +31,3 @@ while True:
       bar()
 
       continue
-
-

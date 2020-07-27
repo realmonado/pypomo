@@ -9,7 +9,7 @@ while True:
   with open("welcome.md") as welcome:
     markdown = Markdown(welcome.read())
     console.print(markdown)
-    
+
   choice = input() # as mentioned in welcome.md
 
   if choice=="1":

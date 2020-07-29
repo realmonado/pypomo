@@ -1,8 +1,18 @@
 import time
+import datetime
 from time import sleep
 from alive_progress import alive_bar
 from rich.console import Console
 from rich.markdown import Markdown
+
+def countdown_timer(secs, now=datetime.datetime.now):
+  target = now()
+  one_second_later = datetime.timedelta(seconds=1)
+  with alive_bar(secs) as bar:
+    for remaining in range(secs, 0, -1):
+      target += one_second_later
+      time.sleep((target - now()).total_seconds())
+      bar()
 
 while True:
             
@@ -14,26 +24,17 @@ while True:
   choice = input() # as mentioned in welcome.md
 
   if choice=="1":
-    items = range(1500) # 20 minutes
+    secs = 1500 # 20 minutes
 
   elif choice=="2":
-    items = range(300) # 5 minutes 301
+    secs = 300 # 5 minutes 301
 
   elif choice=="3":
-    items = range(900) # 15 minutes
+    secs = 900 # 15 minutes
 
   else:
     print("DONE")
     break;
-  
-  start = time.time()
 
-  with alive_bar(len(items)) as bar:
-    for i in items:  # HACK using ranges to iterate while also executing bar()
-      sleep(1)
-      bar()
-
-      continue
-
-  end = time.time()
-  print(end-start)
+  countdown_timer(secs)
+  continue
